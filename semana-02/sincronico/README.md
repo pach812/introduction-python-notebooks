@@ -1,9 +1,9 @@
 # Semana 2 · Workbook de la sesión
 
-Este cuaderno contiene los seis problemas de código en vivo de la segunda
-sesión. Cada enunciado está seguido por una celda editable. El apoyo inicial
-disminuye a lo largo del recorrido hasta terminar con un problema sin código de
-partida.
+Este cuaderno contiene once problemas de código en vivo de la segunda sesión.
+Cada enunciado está seguido por una celda editable. Desde `for`, las actividades
+separan recorrido, lectura, decisión y acumulación antes de integrarlos. El apoyo
+disminuye hasta terminar con un problema sin código de partida.
 
 Desde la raíz del repositorio:
 

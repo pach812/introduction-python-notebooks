@@ -141,100 +141,236 @@ def exercise_collections(participantes_estudio):
 @app.cell(hide_code=True)
 def exercise_loop_prompt(mo):
     mo.md(r"""
-    # Problema 3 · Seleccionar los códigos elegibles
-    ## Recorran todos los registros y apliquen la regla completa
+    # Situación 3 · La revisión manual ya no escala
 
-    El resultado debe ser una lista nueva. Antes de ejecutar, escriban qué
-    códigos esperan conservar.
+    La coordinación necesita una bitácora que permita comprobar que cada persona
+    fue revisada. Construyan una lista de diccionarios con `codigo` y `edad`, en
+    el mismo orden de llegada.
+
+    **Criterio:** cinco entradas; la primera corresponde a P01 y la última a P05.
+
+    Antes de programar: ¿qué cambia en cada vuelta y qué debe permanecer?
     """)
     return
 
 
 @app.cell
 def exercise_loop(participantes_estudio):
-    codigos_practica_c03 = []
+    bitacora_revision_c03 = []
 
-    # TU TURNO: recorre participantes_estudio.
-    # Conserva el código únicamente cuando se cumpla la regla completa.
+    # TU TURNO: recorre participantes_estudio y construye cada entrada.
 
-    codigos_practica_c03
+    bitacora_revision_c03
+    return
+
+
+@app.cell(hide_code=True)
+def exercise_records_prompt(mo):
+    mo.md(r"""
+    # Situación 4 · La bitácora no organiza el trabajo
+
+    El equipo necesita dos colas: personas que continúan y personas que requieren
+    revisión. Apliquen la regla completa y conserven solamente los códigos.
+
+    **Criterio:** `continuan` contiene P01 y P03; `revision` contiene P02, P04 y P05.
+
+    Antes de programar: ¿cómo garantizarán que cada código llegue a una sola cola?
+    """)
+    return
+
+
+@app.cell
+def exercise_records(participantes_estudio):
+    continuan_c03 = []
+    revision_c03 = []
+
+    # TU TURNO: clasifica cada registro en exactamente una cola.
+
+    continuan_c03, revision_c03
+    return
+
+
+@app.cell(hide_code=True)
+def exercise_filter_prompt(mo):
+    mo.md(r"""
+    # Situación 5 · «Requiere revisión» no explica qué hacer
+
+    Construyan registros con `codigo` y el primer `motivo` que detuvo el proceso.
+    Respeten este orden: edad, consentimiento y formulario.
+
+    **Criterio:** P02→`edad`, P04→`consentimiento`, P05→`formulario`.
+
+    Antes de programar: si fallan dos condiciones, ¿qué rama decide el motivo?
+    """)
+    return
+
+
+@app.cell
+def exercise_filter(participantes_estudio):
+    casos_revision_c03 = []
+
+    # TU TURNO: conserva codigo y primer motivo de cada caso detenido.
+
+    casos_revision_c03
+    return
+
+
+@app.cell(hide_code=True)
+def exercise_count_prompt(mo):
+    mo.md(r"""
+    # Situación 6 · Hay que distribuir la carga de revisión
+
+    Resuman cuántos casos corresponden a cada motivo. El resultado debe poder
+    consultarse por `edad`, `consentimiento` y `formulario`.
+
+    **Criterio:** los tres conteos valen 1 y suman la cantidad de casos de revisión.
+
+    Antes de programar: ¿qué dato de cada caso indica cuál contador debe cambiar?
+    """)
+    return
+
+
+@app.cell
+def exercise_count(casos_revision_c03):
+    carga_revision_c03 = {
+        "edad": 0,
+        "consentimiento": 0,
+        "formulario": 0,
+    }
+
+    # TU TURNO: actualiza el conteo que corresponda a cada motivo.
+
+    carga_revision_c03
+    return
+
+
+@app.cell(hide_code=True)
+def exercise_while_prompt(mo):
+    mo.md(r"""
+    # Situación 7 · Un formulario pendiente requiere contacto
+
+    Para P05 se simulan estas respuestas: `[False, False, True]`. Registren cada
+    intento y deténganse cuando haya respuesta o se alcancen tres intentos.
+
+    **Criterio:** intentos `[1, 2, 3]`; cierre `respuesta recibida`.
+
+    Antes de programar: ¿qué dos hechos pueden volver falsa la condición del ciclo?
+    """)
+    return
+
+
+@app.cell
+def exercise_while():
+    respuestas_contacto_c03 = [False, False, True]
+    intento_contacto_c03 = 0
+    intentos_realizados_c03 = []
+    hubo_respuesta_c03 = False
+
+    # TU TURNO: coordina el máximo y la respuesta dentro de un while.
+
+    cierre_contacto_c03 = "respuesta recibida" if hubo_respuesta_c03 else "sin respuesta"
+    intentos_realizados_c03, cierre_contacto_c03
     return
 
 
 @app.cell(hide_code=True)
 def exercise_function_prompt(mo):
     mo.md(r"""
-    # Problema 4 · Convertir el recorrido en una función
-    ## Entradas: registros y límites · salida: lista de códigos
+    # Situación 8 · Otra sede necesita la misma regla
 
-    La función debe producir el mismo resultado sin depender de variables
-    externas ni terminar antes de recorrer toda la lista.
+    Completen una función que reciba un registro y devuelva `continua`, `edad`,
+    `consentimiento` o `formulario`. Debe conservar el orden del protocolo.
+
+    **Criterio:** P01→`continua`; P02→`edad`; P04→`consentimiento`.
+
+    Antes de programar: ¿qué debe llegar como argumento y qué debe devolver la función?
     """)
     return
 
 
 @app.cell
 def exercise_function():
-    def seleccionar_participantes(registros, edad_minima, edad_maxima):
-        """Devuelve los códigos que cumplen la regla del estudio ficticio."""
-        # TU TURNO: construye el cuerpo completo desde este contrato.
+    def clasificar_registro_c04(registro, edad_minima, edad_maxima):
+        # TU TURNO: devuelve el primer resultado aplicable.
         ...
 
-    seleccionar_participantes
-    return (seleccionar_participantes,)
+    clasificar_registro_c04
+    return (clasificar_registro_c04,)
 
 
 @app.cell(hide_code=True)
-def exercise_debug(mo):
+def exercise_integrated_prompt(mo):
     mo.md(r"""
-    # Problema 5 · Una función que falla solo en las fronteras
-    ## Describan la diferencia, propongan una causa y cambien una decisión
+    # Situación 9 · La sede necesita el resumen completo
 
-    Después de corregirla, vuelvan a comprobar los casos habitual, frontera y
-    vacío.
+    Construyan una función que use `clasificar_registro_c04` y devuelva un
+    diccionario con las listas `continuan` y `revision`.
+
+    **Criterio:** las dos listas cubren los cinco registros sin repetir ninguno.
+
+    Antes de programar: ¿qué responsabilidad conserva cada una de las dos funciones?
     """)
     return
 
 
 @app.cell
-def boundary_defect(frontera_c05):
-    def seleccionar_con_frontera_abierta_c05(registros):
-        seleccionados = []
-        for registro in registros:
-            if (
-                18 < registro["edad"] < 65
-                and registro["consentimiento"]
-                and registro["formulario"]
-            ):
-                seleccionados.append(registro["codigo"])
-        return seleccionados
+def exercise_integrated(clasificar_registro_c04):
+    def organizar_jornada_c04(registros, edad_minima, edad_maxima):
+        # TU TURNO: construye y devuelve las dos listas del resumen.
+        ...
 
-    observado_defecto_c05 = seleccionar_con_frontera_abierta_c05(frontera_c05)
-    esperado_defecto_c05 = ["L18", "L65"]
+    organizar_jornada_c04
+    return (organizar_jornada_c04,)
 
-    {
-        "observado": observado_defecto_c05,
-        "esperado": esperado_defecto_c05,
-    }
+
+@app.cell(hide_code=True)
+def exercise_debug(mo):
+    mo.md(r"""
+    # Situación 10 · Los casos habituales pasan, las fronteras no
+
+    Comparen observado y esperado, localicen una sola decisión responsable y
+    vuelvan a ejecutar.
+
+    **Criterio:** 18 y 65 producen `continua`; 17 y 66 producen `edad`.
+
+    Antes de editar: ¿cuál es el primer caso donde observado y esperado difieren?
+    """)
+    return
+
+
+@app.cell
+def boundary_defect():
+    def clasificar_edad_c05(edad):
+        if 18 < edad < 65:
+            return "continua"
+        return "edad"
+
+    # TU TURNO: corrige la función y conserva los cuatro casos de comprobación.
+    casos_frontera_c05 = {17: "edad", 18: "continua", 65: "continua", 66: "edad"}
+    {edad: clasificar_edad_c05(edad) for edad in casos_frontera_c05}
     return
 
 
 @app.cell(hide_code=True)
 def final_live_coding_prompt(mo):
     mo.md(r"""
-    # Problema 6 · Crear una función de seguimiento desde cero
-    ## Devuelvan los códigos con consentimiento y formulario incompleto
+    # Situación 11 · Preparar el seguimiento del día siguiente
 
-    La función recibe una lista de registros y devuelve una lista nueva sin
-    modificar la entrada. Con los registros de la sesión, el resultado esperado
-    es `['P05']`.
+    Desde cero, creen una función que reciba registros y devuelva una lista de
+    diccionarios con `codigo` e `intentos_maximos` para quienes tienen
+    consentimiento y formulario pendiente.
+
+    **Criterio:** obtiene `[{'codigo': 'P05', 'intentos_maximos': 3}]`, sin
+    modificar la entrada.
+
+    Antes de programar: ¿qué estructura del proceso anterior pueden reutilizar
+    aunque la regla y la forma de la salida hayan cambiado?
     """)
     return
 
 
 @app.cell
 def final_live_coding_workspace():
-    # TU TURNO: escribe aquí tu solución completa.
     ...
     return
 

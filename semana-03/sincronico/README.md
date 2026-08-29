@@ -1,7 +1,13 @@
 # Semana 3 · Workbook de clase
 
 Este cuaderno contiene únicamente los problemas y espacios de código utilizados
-durante la sesión sincrónica de la semana 3.
+durante la sesión sincrónica de la semana 3. La secuencia conserva un mismo
+problema: reconocer el lote, preparar sus lecturas, justificar una selección,
+recuperar la identidad de los participantes y construir una entrega verificable.
+
+Cada enunciado aparece inmediatamente antes de su celda editable. Las primeras
+actividades ofrecen nombres de apoyo; las centrales exigen elegir representaciones
+y comprobar resultados; el reto final deja la estrategia en manos del estudiante.
 
 Para abrirlo desde la raíz del proyecto:
 

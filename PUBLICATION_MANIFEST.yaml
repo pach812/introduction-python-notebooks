@@ -1,5 +1,5 @@
 course_version: v2-weeks-01-03
-source_commit: cbc9cfa2fdbd1df1e48aa8578113afcdb1574ab4
+source_commit: 909daaf1e707e5a62c7c0a67f6f057023d342102
 files:
 - path: .gitignore
   size_bytes: 47
@@ -80,14 +80,14 @@ files:
   size_bytes: 892
   sha256: 7eb9e89a87cf57430bd3ecde2d97f17997d492bf5e0bda80c38a8d7223e0a1fd
 - path: semana-02/sincronico/README.md
-  size_bytes: 578
-  sha256: b1b350a4d5e21fa72e4cd7645cabd0d9534b3fc0af41e372fb7e4e6a5b2c0b7d
+  size_bytes: 645
+  sha256: 90bfd35c844c83dd7aa570876a2c8dfb522ebdc4ff6538a7a450d0f91e06e9a0
 - path: semana-02/sincronico/layouts/lesson.slides.json
-  size_bytes: 545
-  sha256: 68a8ffc5dd21f3c08529e9a895093b0f1e4eafdfbe9208a0f141100b2c2c70aa
+  size_bytes: 815
+  sha256: b1ec1fa450cf33f702ab14af69d158d9d2891efd3f3e564d14273cbbe0aa71e5
 - path: semana-02/sincronico/lesson.py
-  size_bytes: 6260
-  sha256: a79b29e7b773309f238f3fe34ad2d47211f4764dc229345bd276ddb001969f5e
+  size_bytes: 10104
+  sha256: fc71d87acee9a2ac57b277a588286c034b50c4e02bb5da6ff6cea47550ae705b
 - path: semana-03/autoaprendizaje/01_objetos_atributos_y_metodos.py
   size_bytes: 17408
   sha256: e3940ce6dbfc3f9ba7ea6822b0c3515ba0cb66e413404fccc5acfa91c811f8f3
@@ -107,11 +107,11 @@ files:
   size_bytes: 1020
   sha256: 06f5719e4695ba64f533fb4e89d8f244c7f28f4596f2340194d74e0e338c4edc
 - path: semana-03/sincronico/README.md
-  size_bytes: 579
-  sha256: 770949b53042ef66c2cc46fff8ccdbebf91bb7364d98e89247672041ff88d45d
+  size_bytes: 1015
+  sha256: 6e46ad2465424ac8cdda08b4007a955d18dd383dc7f8d94b7cacf077720f6dac
 - path: semana-03/sincronico/layouts/lesson.slides.json
   size_bytes: 950
   sha256: b5bf76bde9efafb353a9b08f30524fe02ae217bbf2abf1b57f4e7b2a64e36d2d
 - path: semana-03/sincronico/lesson.py
-  size_bytes: 12138
-  sha256: 80e5e85688cb94c91f4a85c5564df428c3b64d26c863af51264230839c848ad7
+  size_bytes: 16032
+  sha256: f92aed5be4a6175a0f4a06db93c2b67636822359f612c2574375d46db5ecfd25
