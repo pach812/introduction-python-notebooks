@@ -1,5 +1,5 @@
 course_version: v2-weeks-01-03
-source_commit: 909daaf1e707e5a62c7c0a67f6f057023d342102
+source_commit: 950359e52a22d8acfcbaf13d575d995cf899a698
 files:
 - path: .gitignore
   size_bytes: 47
@@ -11,8 +11,8 @@ files:
   size_bytes: 940
   sha256: a62f0486bc00e239d373603f5d3c3e4fefc35270b96ff306c8019db6d5581e57
 - path: README.md
-  size_bytes: 1470
-  sha256: 0d9030a3f0254259e4b5f9d1524421ce7696e829a7fb4c0f2ce593e8dfcaaee4
+  size_bytes: 1914
+  sha256: 2df164cd5d0c0793d7d50d3b993719c675c309f6ed5fa2f214c7e5690d0ad539
 - path: assets/ces-theme.css
   size_bytes: 41506
   sha256: df8f3c3d27efd78bc16cb91d3267dd615b141ccaa4b9ca267b0dd6c917aa5a8e
@@ -38,8 +38,8 @@ files:
   size_bytes: 608
   sha256: 2a8e0d83a4e00c24908ef1c548d914f284ff5b43cfb88e90d746e90886457839
 - path: semana-01/sincronico/README.md
-  size_bytes: 1075
-  sha256: 85186e0ff28d6c982dc5d6234630b2771273e54c43eccff51c86d299a132c96b
+  size_bytes: 992
+  sha256: d676c929dcdd7ae6bceee1417afeb46e2f8e6ef38f6aadf1dd5425c00d393ad0
 - path: semana-01/sincronico/layouts/lesson.slides.json
   size_bytes: 532
   sha256: 58227850e5d8363b64f66dc99cca471291d772dca2ab2cd542e7b892906bdaa4
@@ -77,11 +77,11 @@ files:
   size_bytes: 9318
   sha256: d0c2dd458bd6bcfa171944c02525999af96996d524754d2c0f5435c4c3927251
 - path: semana-02/autoaprendizaje/README.md
-  size_bytes: 892
-  sha256: 7eb9e89a87cf57430bd3ecde2d97f17997d492bf5e0bda80c38a8d7223e0a1fd
+  size_bytes: 1205
+  sha256: 1df1d9fbde096cab1b1ebc27e8208ca1b03ca2352532d041be9041541ea07b27
 - path: semana-02/sincronico/README.md
-  size_bytes: 645
-  sha256: 90bfd35c844c83dd7aa570876a2c8dfb522ebdc4ff6538a7a450d0f91e06e9a0
+  size_bytes: 1115
+  sha256: 6da9eb6381a4cd981ff02618f3b0ee95375cd5fd1cfa3b83999343cf23cdfa07
 - path: semana-02/sincronico/layouts/lesson.slides.json
   size_bytes: 815
   sha256: b1ec1fa450cf33f702ab14af69d158d9d2891efd3f3e564d14273cbbe0aa71e5
@@ -104,11 +104,11 @@ files:
   size_bytes: 15961
   sha256: d74b457c059b7ec300eaa447493cdfc7babc768c344d95c78911805af7320d71
 - path: semana-03/autoaprendizaje/README.md
-  size_bytes: 1020
-  sha256: 06f5719e4695ba64f533fb4e89d8f244c7f28f4596f2340194d74e0e338c4edc
+  size_bytes: 1420
+  sha256: baaa4b7a6f49336015beee5b6bd0185f88a43f6babaa453f535077201c7eb3f1
 - path: semana-03/sincronico/README.md
-  size_bytes: 1015
-  sha256: 6e46ad2465424ac8cdda08b4007a955d18dd383dc7f8d94b7cacf077720f6dac
+  size_bytes: 1176
+  sha256: 0e022cc7e3f45d1242f6c093bfc36782cb2fd28822dab1ab46c3af325b127410
 - path: semana-03/sincronico/layouts/lesson.slides.json
   size_bytes: 950
   sha256: b5bf76bde9efafb353a9b08f30524fe02ae217bbf2abf1b57f4e7b2a64e36d2d

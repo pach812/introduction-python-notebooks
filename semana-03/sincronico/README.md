@@ -1,22 +1,27 @@
-# Semana 3 · Workbook de clase
+# Semana 3 · De las lecturas a una tabla verificable
 
-Este cuaderno contiene únicamente los problemas y espacios de código utilizados
-durante la sesión sincrónica de la semana 3. La secuencia conserva un mismo
-problema: reconocer el lote, preparar sus lecturas, justificar una selección,
-recuperar la identidad de los participantes y construir una entrega verificable.
+En esta sesión recibiremos un lote ficticio de lecturas del Estudio Horizonte y
+lo transformaremos hasta obtener una tabla que el equipo pueda revisar. Esa
+operación nos permitirá descubrir cómo trabajan los objetos, NumPy, las Series y
+los DataFrames.
 
-Cada enunciado aparece inmediatamente antes de su celda editable. Las primeras
-actividades ofrecen nombres de apoyo; las centrales exigen elegir representaciones
-y comprobar resultados; el reto final deja la estrategia en manos del estudiante.
+Cada enunciado aparece inmediatamente antes de su celda editable. Al comienzo
+encontrarás nombres y pasos de apoyo. Más adelante tendrás que decidir cómo
+representar, seleccionar y comprobar los datos. El reto final reúne todo el
+recorrido con un lote nuevo.
 
 Para abrirlo desde la raíz del proyecto:
 
 ```bash
-uv run marimo edit materials/v2/students/live-coding/week-03-objects-scientific-tools/lesson.py
+uv run marimo edit semana-03/sincronico/lesson.py
 ```
 
-Los datos pertenecen al caso ficticio Estudio Horizonte. No representan
-mediciones clínicas ni criterios reales de revisión.
+## Una pregunta para orientar el trabajo
 
-Las guías de autoestudio de la semana contienen las explicaciones completas,
-ejemplos adicionales y ejercicios con retroalimentación.
+En cada problema pregúntate: ¿qué información debemos conservar para que otra
+persona pueda comprobar la decisión? Esa pregunta ayuda a elegir entre una
+posición, una etiqueta, una máscara o una tabla.
+
+Cuando termine la sesión, las guías de autoestudio te permitirán volver sobre
+cada estructura con explicaciones, ejemplos y ejercicios adicionales. Los datos
+y umbrales del caso son ficticios y se usan únicamente con fines didácticos.

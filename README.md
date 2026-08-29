@@ -1,34 +1,42 @@
 # Fundamentos de Python para Análisis de Datos
 
-Notebooks para estudiantes de las semanas 1 a 3. Esta publicación parcial
-incluye los cuadernos de clase disponibles y las unidades de autoaprendizaje
-aprobadas. No requiere datos externos.
+Bienvenido al espacio de trabajo del curso. Aquí encontrarás los cuadernos que
+usaremos durante las clases y una ruta de autoestudio para volver sobre los temas,
+probar variaciones y avanzar con más calma entre sesiones.
+
+El material disponible cubre las primeras tres semanas: el entorno de trabajo,
+los fundamentos del lenguaje, las estructuras de control y las primeras
+herramientas para trabajar con datos mediante NumPy y Pandas.
 
 ## Empezar
 
 1. Instala [uv](https://docs.astral.sh/uv/getting-started/installation/).
 2. Clona este repositorio y entra en su carpeta.
 3. Ejecuta `uv sync`.
-4. Abre el cuaderno que corresponda. Por ejemplo:
+4. Abre el cuaderno de la sesión o la unidad que quieras estudiar. Por ejemplo:
 
 ```bash
 uv run marimo edit semana-01/sincronico/lesson.py
 ```
 
-Las unidades de autoaprendizaje se recorren en el orden numerado de cada carpeta.
+Si es tu primera vez en el repositorio, comienza por el cuaderno sincrónico de la
+semana que estás cursando. Después puedes seguir las unidades de autoaprendizaje
+en el orden numerado o abrir únicamente el tema que quieras repasar.
 
 ## Estructura
 
-- `semana-01/sincronico/`: workbook de la primera sesión.
-- `semana-02/sincronico/`: workbook de la segunda sesión.
-- `semana-02/autoaprendizaje/`: diez unidades sobre control, colecciones y funciones.
-- `semana-03/sincronico/`: workbook de la tercera sesión.
-- `semana-03/autoaprendizaje/`: cinco unidades sobre objetos, NumPy y Pandas.
-- `course_widgets/`: componentes usados por los ejercicios interactivos.
-- `course_feedback/`: configuración compilada para la retroalimentación.
+- `semana-01/sincronico/`: primer recorrido por Marimo, expresiones, tipos y errores.
+- `semana-02/sincronico/`: problemas en vivo sobre decisiones, colecciones,
+  recorridos y funciones.
+- `semana-02/autoaprendizaje/`: diez unidades para profundizar control,
+  estructuras de datos, recorridos, funciones y pruebas.
+- `semana-03/sincronico/`: una operación guiada con objetos, NumPy, Series y
+  DataFrames.
+- `semana-03/autoaprendizaje/`: cinco unidades para estudiar con mayor detalle
+  los conceptos de la tercera semana.
 
-Este repositorio no contiene datos reales, soluciones ni notas docentes. La
-versión exacta está en `COURSE_VERSION`.
+Cada carpeta tiene su propio README con la ruta sugerida y el comando para abrir
+el material.
 
 ## Uso y permisos
 
