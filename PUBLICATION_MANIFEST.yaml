@@ -1,18 +1,27 @@
-course_version: v2-week-02
-source_commit: c0fc705c0c8b0049946de745beb041a7c847a7d1
+course_version: v2-weeks-01-03
+source_commit: cbc9cfa2fdbd1df1e48aa8578113afcdb1574ab4
 files:
+- path: .gitignore
+  size_bytes: 47
+  sha256: 94b3dde514f90a400e7e87e94273ee50d2c90d4cfc00dcd17fe3b2468b496e0c
 - path: COURSE_VERSION
-  size_bytes: 11
-  sha256: 0ee8f96e6890cb04ee617705ce07752b5dcfe84b510917bc7aabb04f77f49467
+  size_bytes: 15
+  sha256: fcbf5e48f802105615469215c1ea56aabd34599f01f6431918244939f66e943d
 - path: LICENSE
   size_bytes: 940
   sha256: a62f0486bc00e239d373603f5d3c3e4fefc35270b96ff306c8019db6d5581e57
 - path: README.md
-  size_bytes: 1136
-  sha256: 604b28127a374eb8ed2ed975883df1a7771e52b4db9a4d7744a0a87df8a886d3
+  size_bytes: 1470
+  sha256: 0d9030a3f0254259e4b5f9d1524421ce7696e829a7fb4c0f2ce593e8dfcaaee4
+- path: assets/ces-theme.css
+  size_bytes: 41506
+  sha256: df8f3c3d27efd78bc16cb91d3267dd615b141ccaa4b9ca267b0dd6c917aa5a8e
 - path: course_feedback/bundles/week_02_control_collections_functions.pyc
   size_bytes: 6731
   sha256: 9ea0cd45a29108456c29bafb05c49887b0629a02e59daf23608aa44b14279a46
+- path: course_feedback/bundles/week_03_objects_scientific_tools.pyc
+  size_bytes: 5039
+  sha256: c523e47ae085ba41eeb3268d9aef6c1e508f07f8a997684bd57d98cc9d2ab0b8
 - path: course_widgets/__init__.py
   size_bytes: 891
   sha256: 1248e961306e40b205b9cb82384e204cd312e1d5b8e32ef35cee34838d639e08
@@ -23,11 +32,20 @@ files:
   size_bytes: 4386
   sha256: 3bc52d6f4c201bee74899e04d7c62ca75c7255433910b2f1c8f0a52d9c99a1e2
 - path: course_widgets/exercise_feedback.py
-  size_bytes: 26984
-  sha256: d523a1ab40347390052c1e3af799a8da511464e343257ecc3268e1080edda11c
+  size_bytes: 30174
+  sha256: 5fb25d5332002b768933b551cb4cb66614f35e19517d19e5f1f530fef3f92158
 - path: pyproject.toml
-  size_bytes: 323
-  sha256: 3603b7df32f1c4c7f5817bc024a7f0b36792c9be58f0c4f74f0e4ba5f142c1d2
+  size_bytes: 608
+  sha256: 2a8e0d83a4e00c24908ef1c548d914f284ff5b43cfb88e90d746e90886457839
+- path: semana-01/sincronico/README.md
+  size_bytes: 1075
+  sha256: 85186e0ff28d6c982dc5d6234630b2771273e54c43eccff51c86d299a132c96b
+- path: semana-01/sincronico/layouts/lesson.slides.json
+  size_bytes: 532
+  sha256: 58227850e5d8363b64f66dc99cca471291d772dca2ab2cd542e7b892906bdaa4
+- path: semana-01/sincronico/lesson.py
+  size_bytes: 12760
+  sha256: 40382a23c2931d1fc975334dfed8494e12ec09607188a529a3a8b656b6010536
 - path: semana-02/autoaprendizaje/01_reglas_y_control.py
   size_bytes: 16812
   sha256: 5e14707a580ea084c0adf9dbff5c5d594d6440a0fe6762ca0d246ec1bb5b6781
@@ -61,3 +79,39 @@ files:
 - path: semana-02/autoaprendizaje/README.md
   size_bytes: 892
   sha256: 7eb9e89a87cf57430bd3ecde2d97f17997d492bf5e0bda80c38a8d7223e0a1fd
+- path: semana-02/sincronico/README.md
+  size_bytes: 578
+  sha256: b1b350a4d5e21fa72e4cd7645cabd0d9534b3fc0af41e372fb7e4e6a5b2c0b7d
+- path: semana-02/sincronico/layouts/lesson.slides.json
+  size_bytes: 545
+  sha256: 68a8ffc5dd21f3c08529e9a895093b0f1e4eafdfbe9208a0f141100b2c2c70aa
+- path: semana-02/sincronico/lesson.py
+  size_bytes: 6260
+  sha256: a79b29e7b773309f238f3fe34ad2d47211f4764dc229345bd276ddb001969f5e
+- path: semana-03/autoaprendizaje/01_objetos_atributos_y_metodos.py
+  size_bytes: 17408
+  sha256: e3940ce6dbfc3f9ba7ea6822b0c3515ba0cb66e413404fccc5acfa91c811f8f3
+- path: semana-03/autoaprendizaje/02_modulos_librerias_e_importaciones.py
+  size_bytes: 9943
+  sha256: 912f6d4b70a43cccf488a6f37533cfea41af92c0bbf6c8919b98bce28110a232
+- path: semana-03/autoaprendizaje/03_numpy_arrays.py
+  size_bytes: 13334
+  sha256: 8077c6b20cc9162ff0d5f93ef36f26bbe146b056b4749ba01541c858d3e8481f
+- path: semana-03/autoaprendizaje/04_pandas_series.py
+  size_bytes: 12395
+  sha256: e2262d80932060db544583714dfab650be88af7646ad89362a75e9e52714e917
+- path: semana-03/autoaprendizaje/05_pandas_dataframes.py
+  size_bytes: 15961
+  sha256: d74b457c059b7ec300eaa447493cdfc7babc768c344d95c78911805af7320d71
+- path: semana-03/autoaprendizaje/README.md
+  size_bytes: 1020
+  sha256: 06f5719e4695ba64f533fb4e89d8f244c7f28f4596f2340194d74e0e338c4edc
+- path: semana-03/sincronico/README.md
+  size_bytes: 579
+  sha256: 770949b53042ef66c2cc46fff8ccdbebf91bb7364d98e89247672041ff88d45d
+- path: semana-03/sincronico/layouts/lesson.slides.json
+  size_bytes: 950
+  sha256: b5bf76bde9efafb353a9b08f30524fe02ae217bbf2abf1b57f4e7b2a64e36d2d
+- path: semana-03/sincronico/lesson.py
+  size_bytes: 12138
+  sha256: 80e5e85688cb94c91f4a85c5564df428c3b64d26c863af51264230839c848ad7

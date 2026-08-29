@@ -1,0 +1,41 @@
+{
+  "type": "slides",
+  "data": {
+    "cells": [
+      {
+        "type": "skip"
+      },
+      {
+        "type": "skip"
+      },
+      {},
+      {
+        "type": "fragment"
+      },
+      {},
+      {
+        "type": "fragment"
+      },
+      {},
+      {
+        "type": "fragment"
+      },
+      {},
+      {
+        "type": "fragment"
+      },
+      {},
+      {
+        "type": "fragment"
+      },
+      {},
+      {
+        "type": "fragment"
+      }
+    ],
+    "deck": {
+      "transition": "fade",
+      "verticalAlign": "center"
+    }
+  }
+}

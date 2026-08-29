@@ -12,6 +12,7 @@ from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from importlib.machinery import SourcelessFileLoader
 from importlib.util import module_from_spec, spec_from_loader
+from math import isclose
 from numbers import Real
 from pathlib import Path
 from types import MappingProxyType
@@ -384,20 +385,33 @@ _TYPE_MAP: Mapping[str, type] = MappingProxyType(
         "tuple": tuple,
     }
 )
+_SCIENTIFIC_TYPE_PATHS: Mapping[str, tuple[tuple[str, ...], str]] = MappingProxyType(
+    {
+        "numpy.ndarray": (("numpy",), "ndarray"),
+        "pandas.Series": (("pandas", "pandas.core.series"), "Series"),
+        "pandas.DataFrame": (("pandas", "pandas.core.frame"), "DataFrame"),
+    }
+)
 _ALLOWED_KINDS = {
     "all_items_type",
     "all_required_none",
+    "columns_equals",
     "call_cases",
+    "dtype_equals",
     "equals",
+    "index_equals",
     "length_at_least",
     "length_equals",
     "mapping_equals",
     "never",
     "not_none",
     "numeric_items",
+    "scientific_type_is",
     "sequence_equals",
+    "shape_equals",
     "set_equals",
     "type_is",
+    "values_close",
 }
 
 
@@ -418,6 +432,33 @@ def _compare_value(kind: str, actual: object, expected: object) -> bool:
     if kind == "mapping_equals":
         return isinstance(actual, Mapping) and dict(actual) == expected
     return actual == expected
+
+
+def _nested_values_close(actual: object, expected: object) -> bool:
+    if isinstance(actual, (list, tuple)) and isinstance(expected, (list, tuple)):
+        return len(actual) == len(expected) and all(
+            _nested_values_close(actual_item, expected_item)
+            for actual_item, expected_item in zip(actual, expected, strict=True)
+        )
+    if (
+        isinstance(actual, Real)
+        and not isinstance(actual, bool)
+        and isinstance(expected, Real)
+        and not isinstance(expected, bool)
+    ):
+        return isclose(float(actual), float(expected), rel_tol=1e-9, abs_tol=1e-12)
+    return actual == expected
+
+
+def _scientific_values(value: object) -> object:
+    tolist = getattr(value, "tolist", None)
+    if callable(tolist):
+        return tolist()
+    values = getattr(value, "values", None)
+    values_tolist = getattr(values, "tolist", None)
+    if callable(values_tolist):
+        return values_tolist()
+    raise TypeError("El objeto no expone valores científicos comparables.")
 
 
 def _predicate_for(spec: PredicateSpec) -> Callable[[Mapping[str, object]], bool]:
@@ -443,6 +484,25 @@ def _predicate_for(spec: PredicateSpec) -> Callable[[Mapping[str, object]], bool
                 return isinstance(actual, Real) and not isinstance(actual, bool)
             expected = _TYPE_MAP[spec.expected_type]
             return type(actual) is expected
+        if spec.kind == "scientific_type_is":
+            expected_modules, expected_name = _SCIENTIFIC_TYPE_PATHS[
+                spec.expected_type
+            ]
+            actual_type = type(actual)
+            return (
+                actual_type.__module__ in expected_modules
+                and actual_type.__name__ == expected_name
+            )
+        if spec.kind == "shape_equals":
+            return tuple(actual.shape) == tuple(spec.value)
+        if spec.kind == "dtype_equals":
+            return str(actual.dtype) == spec.value
+        if spec.kind == "columns_equals":
+            return list(actual.columns) == list(spec.value)
+        if spec.kind == "index_equals":
+            return list(actual.index) == list(spec.value)
+        if spec.kind == "values_close":
+            return _nested_values_close(_scientific_values(actual), spec.value)
         if spec.kind == "length_at_least":
             return len(actual) >= spec.minimum
         if spec.kind == "length_equals":
@@ -495,6 +555,24 @@ def _spec_from_config(config: object, context: str) -> PredicateSpec:
             allowed_types.add("number")
         if expected_type not in allowed_types:
             raise ValueError(f"expected_type inválido en {context}: {expected_type!r}.")
+    if kind == "scientific_type_is" and expected_type not in _SCIENTIFIC_TYPE_PATHS:
+        raise ValueError(f"expected_type inválido en {context}: {expected_type!r}.")
+    if kind in {
+        "columns_equals",
+        "index_equals",
+        "shape_equals",
+        "values_close",
+    } and not isinstance(config.get("value"), list):
+        raise ValueError(f"value de {context} debe ser una lista TOML.")
+    if kind == "shape_equals" and any(
+        not isinstance(item, int) or isinstance(item, bool) or item < 0
+        for item in config["value"]
+    ):
+        raise ValueError(f"value de {context} debe contener dimensiones válidas.")
+    if kind == "dtype_equals" and (
+        not isinstance(config.get("value"), str) or not config["value"].strip()
+    ):
+        raise ValueError(f"value de {context} debe ser un dtype no vacío.")
     minimum = config.get("minimum")
     if kind in {"length_at_least", "length_equals", "numeric_items"}:
         lower_bound = 1 if kind == "numeric_items" else 0

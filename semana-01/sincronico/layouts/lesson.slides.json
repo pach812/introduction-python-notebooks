@@ -1,0 +1,43 @@
+{
+  "type": "slides",
+  "data": {
+    "cells": [
+      {"type": "skip"},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {"type": "sub-slide"},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {"type": "sub-slide"},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {"type": "sub-slide"},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "deck": {
+      "transition": "fade",
+      "verticalAlign": "center"
+    }
+  }
+}

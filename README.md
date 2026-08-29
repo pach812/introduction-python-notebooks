@@ -1,24 +1,29 @@
 # Fundamentos de Python para Análisis de Datos
 
-Notebooks para estudiantes. Esta publicación parcial contiene el material de
-autoaprendizaje aprobado de la Semana 2 y no requiere datos externos.
+Notebooks para estudiantes de las semanas 1 a 3. Esta publicación parcial
+incluye los cuadernos de clase disponibles y las unidades de autoaprendizaje
+aprobadas. No requiere datos externos.
 
 ## Empezar
 
 1. Instala [uv](https://docs.astral.sh/uv/getting-started/installation/).
 2. Clona este repositorio y entra en su carpeta.
 3. Ejecuta `uv sync`.
-4. Abre el primer notebook:
+4. Abre el cuaderno que corresponda. Por ejemplo:
 
 ```bash
-uv run marimo edit semana-02/autoaprendizaje/01_reglas_y_control.py
+uv run marimo edit semana-01/sincronico/lesson.py
 ```
 
-Continúa con el orden numerado dentro de `semana-02/autoaprendizaje/`.
+Las unidades de autoaprendizaje se recorren en el orden numerado de cada carpeta.
 
 ## Estructura
 
-- `semana-02/autoaprendizaje/`: notebooks y guía de recorrido.
+- `semana-01/sincronico/`: workbook de la primera sesión.
+- `semana-02/sincronico/`: workbook de la segunda sesión.
+- `semana-02/autoaprendizaje/`: diez unidades sobre control, colecciones y funciones.
+- `semana-03/sincronico/`: workbook de la tercera sesión.
+- `semana-03/autoaprendizaje/`: cinco unidades sobre objetos, NumPy y Pandas.
 - `course_widgets/`: componentes usados por los ejercicios interactivos.
 - `course_feedback/`: configuración compilada para la retroalimentación.
 
