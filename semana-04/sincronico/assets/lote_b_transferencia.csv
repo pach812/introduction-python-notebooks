@@ -1,0 +1,6 @@
+codigo,fecha_visita,sede,edad,sexo_reportado,lectura_sistolica,lectura_diastolica,imc,tabaquismo,estado_seguimiento,numero_visitas
+EH-051,2026-05-02,Norte,45.0,F,134.0,86.0,27.2,no,completo,1
+EH-052,2026-05-03,SUR,145.0,M,128.0,82.0,29.1,no,completo,2
+EH-053,2026-05-05,Centro,52.0,F,142.5,90.0,31.4,si,pendiente,1
+EH-054,2026-05-06,Sur,61.0,M,155.0,98.0,26.8,no,completo,3
+EH-055,2026-05-08, norte ,38.0,F,122.0,78.0,24.5,no,completo,1

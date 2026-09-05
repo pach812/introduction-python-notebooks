@@ -4,9 +4,9 @@ Bienvenido al espacio de trabajo del curso. Aquí encontrarás los cuadernos que
 usaremos durante las clases y una ruta de autoestudio para volver sobre los temas,
 probar variaciones y avanzar con más calma entre sesiones.
 
-El material disponible cubre las primeras tres semanas: el entorno de trabajo,
-los fundamentos del lenguaje, las estructuras de control y las primeras
-herramientas para trabajar con datos mediante NumPy y Pandas.
+El material disponible cubre las primeras cuatro semanas: el entorno de trabajo,
+los fundamentos del lenguaje, las estructuras de control, los objetos y
+herramientas científicas, y la limpieza y preparación de datos tabulares.
 
 ## Empezar
 
@@ -34,6 +34,8 @@ en el orden numerado o abrir únicamente el tema que quieras repasar.
   DataFrames.
 - `semana-03/autoaprendizaje/`: cinco unidades para estudiar con mayor detalle
   los conceptos de la tercera semana.
+- `semana-04/sincronico/`: limpieza, diagnóstico, preparación y combinación de
+  datos con el Estudio Horizonte.
 
 Cada carpeta tiene su propio README con la ruta sugerida y el comando para abrir
 el material.

@@ -1,14 +1,15 @@
-# Semana 3 · De las lecturas a una tabla verificable
+# Semana 3 · De las lecturas a una tabla que podamos revisar
 
 En esta sesión recibiremos un lote ficticio de lecturas del Estudio Horizonte y
 lo transformaremos hasta obtener una tabla que el equipo pueda revisar. Esa
 operación nos permitirá descubrir cómo trabajan los objetos, NumPy, las Series y
 los DataFrames.
 
-Cada enunciado aparece inmediatamente antes de su celda editable. Al comienzo
-encontrarás nombres y pasos de apoyo. Más adelante tendrás que decidir cómo
-representar, seleccionar y comprobar los datos. El reto final reúne todo el
-recorrido con un lote nuevo.
+Cada enunciado aparece inmediatamente antes de su celda editable. Los 15
+problemas están numerados igual que en la sesión docente. Al comienzo encontrarás
+nombres y pasos de apoyo. Más adelante tendrás que decidir cómo representar,
+seleccionar y comprobar los datos. El reto final reúne todo el recorrido con un
+lote nuevo.
 
 Para abrirlo desde la raíz del proyecto:
 

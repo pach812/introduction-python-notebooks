@@ -7,7 +7,7 @@
 
 import marimo
 
-__generated_with = "0.23.16"
+__generated_with = "0.24.0"
 app = marimo.App(
     width="full",
     app_title="Semana 2 · Workbook en vivo",
@@ -71,7 +71,7 @@ def _():
             "formulario": True,
         },
     ]
-    return frontera_c05, participantes_estudio
+    return (participantes_estudio,)
 
 
 @app.cell(hide_code=True)
@@ -103,12 +103,7 @@ def exercise_rule():
         decision_practica_c01 = "COMPLETA: resultado cuando todo se cumple"
 
     decision_practica_c01
-    return (
-        consentimiento_practica_c01,
-        decision_practica_c01,
-        edad_practica_c01,
-        formulario_practica_c01,
-    )
+    return
 
 
 @app.cell(hide_code=True)
@@ -135,7 +130,7 @@ def exercise_collections(participantes_estudio):
     # TU TURNO: agrega nuevo_registro_c02 a la copia de trabajo.
 
     registros_practica_c02
-    return
+    return (registros_practica_c02,)
 
 
 @app.cell(hide_code=True)
@@ -147,6 +142,8 @@ def exercise_loop_prompt(mo):
     fue revisada. Construyan una lista de diccionarios con `codigo` y `edad`, en
     el mismo orden de llegada.
 
+    Pasa la informacion del `registros_practica_c02` a la nueva `bitacora_revision_c03`.
+
     **Criterio:** cinco entradas; la primera corresponde a P01 y la última a P05.
 
     Antes de programar: ¿qué cambia en cada vuelta y qué debe permanecer?
@@ -155,10 +152,13 @@ def exercise_loop_prompt(mo):
 
 
 @app.cell
-def exercise_loop(participantes_estudio):
+def exercise_loop(registros_practica_c02):
     bitacora_revision_c03 = []
 
     # TU TURNO: recorre participantes_estudio y construye cada entrada.
+    for participante in registros_practica_c02:
+        bitacora_revision_c03.append(participante)
+        print(f"paciente {participante['codigo']} agregado!")
 
     bitacora_revision_c03
     return
@@ -170,7 +170,9 @@ def exercise_records_prompt(mo):
     # Situación 4 · La bitácora no organiza el trabajo
 
     El equipo necesita dos colas: personas que continúan y personas que requieren
-    revisión. Apliquen la regla completa y conserven solamente los códigos.
+    revisión.
+
+    **Apliquen la regla completa _(edad, consentimiento y formulario)_** y conserven solamente los códigos.
 
     **Criterio:** `continuan` contiene P01 y P03; `revision` contiene P02, P04 y P05.
 
@@ -180,9 +182,32 @@ def exercise_records_prompt(mo):
 
 
 @app.cell
-def exercise_records(participantes_estudio):
+def exercise_records(registros_practica_c02):
     continuan_c03 = []
     revision_c03 = []
+
+    for _participante in registros_practica_c02:
+
+        # cualquier que se inclumpla lo descarta.
+        reglas_para_revision = ( 
+            _participante["edad"] < 18 
+            or _participante["edad"] > 65 
+            or not _participante["consentimiento"] 
+            or not _participante["formulario"]
+        )
+
+        # aquí se deben cumplir todas las reglas.
+        reglas_para_pasar = (
+            _participante["edad"] >= 18 or _participante["edad"] <= 65
+            and _participante["consentimiento"]
+            and _participante["formulario"]
+        )
+    
+        # revisar edad.
+        if reglas_para_revision:
+            revision_c03.append(_participante["codigo"])
+        else: 
+            continuan_c03.append(_participante["codigo"])
 
     # TU TURNO: clasifica cada registro en exactamente una cola.
 
@@ -206,12 +231,40 @@ def exercise_filter_prompt(mo):
 
 
 @app.cell
-def exercise_filter(participantes_estudio):
+def exercise_filter(registros_practica_c02):
+    casos_continua_c03 = []
     casos_revision_c03 = []
 
-    # TU TURNO: conserva codigo y primer motivo de cada caso detenido.
+    registros_practica_c02[1]["formulario"] = False
 
-    casos_revision_c03
+    # TU TURNO: conserva codigo y primer motivo de cada caso detenido.
+    for _participante in registros_practica_c02:
+        motivos = []
+    
+        # aquí se deben cumplir todas las reglas.
+        regla_edad = (_participante["edad"] >= 18 and _participante["edad"] <= 65)
+        regla_consentimiento = ( _participante["consentimiento"])
+        regla_formulario =(_participante["formulario"])
+    
+        # revisar edad.
+        if regla_edad and regla_consentimiento and regla_formulario:
+            casos_continua_c03.append(_participante)
+            continue
+        if not regla_edad:
+            motivos.append("edad")
+        if not regla_consentimiento:
+            motivos.append("consentimiento")
+        if not regla_formulario:
+            motivos.append("formulario")
+    
+        casos_revision_c03.append(
+                {
+                    "codigo": _participante["codigo"],
+                    "motivos": motivos
+                }
+            )
+
+    casos_continua_c03, casos_revision_c03
     return
 
 
@@ -231,7 +284,7 @@ def exercise_count_prompt(mo):
 
 
 @app.cell
-def exercise_count(casos_revision_c03):
+def exercise_count():
     carga_revision_c03 = {
         "edad": 0,
         "consentimiento": 0,
@@ -273,6 +326,38 @@ def exercise_while():
     return
 
 
+@app.cell
+def _():
+    # funciones con o sin retorno. 
+
+    ## funcion sin retorno: 
+
+    def check_numerico(numero):
+        """Esta funcion imprime un valor numerico"""
+        if not isinstance(numero, (int,float)):
+            print("El valor ingresado no es un numero, no se puede imprimir")
+        else:
+            print(numero)
+            print(type(numero))
+
+
+    check_numerico(45.4)
+
+    # funcion con retorno:
+    def check_numerico_con_retorno(numero):
+        """Esta funcion imprime un valor numerico"""
+        if not isinstance(numero, (int,float)):
+            print("El valor ingresado no es un numero, no se puede imprimir")
+        else:
+            print(numero)
+            print(type(numero))
+            return numero
+
+    resultado_func = check_numerico_con_retorno(45.3)
+
+    return
+
+
 @app.cell(hide_code=True)
 def exercise_function_prompt(mo):
     mo.md(r"""
@@ -288,14 +373,45 @@ def exercise_function_prompt(mo):
     return
 
 
-@app.cell
-def exercise_function():
-    def clasificar_registro_c04(registro, edad_minima, edad_maxima):
-        # TU TURNO: devuelve el primer resultado aplicable.
-        ...
+@app.function
+def clasificar_participante(participante, edad_minima, edad_maxima):
+    """
+    Que quiero: que se clasifique un participante por edad, consentimiento y formulario.
+    Que recibe: una lista de participantes en la variable registro, una edad minima y maxima a filtrar.
+    que devuleve: si el participante cumple con las condiciones devuelve el codigo del participante y sus motivos si no cumple.
 
-    clasificar_registro_c04
-    return (clasificar_registro_c04,)
+    return: un diccionario con datos de paticipante o codigo y motivos de fallo/exclusion.
+    """
+    motivos = []
+    
+    # aquí se deben cumplir todas las reglas.
+    regla_edad = (participante["edad"] >= edad_minima and participante["edad"] <= edad_maxima)
+    regla_consentimiento = (participante["consentimiento"])
+    regla_formulario =(participante["formulario"])
+    
+    # revisar condiciones, si cumple devolvemos el participante.
+    if regla_edad and regla_consentimiento and regla_formulario:
+        return participante
+    if not regla_edad:
+        motivos.append("edad")
+    if not regla_consentimiento:
+        motivos.append("consentimiento")
+    if not regla_formulario:
+        motivos.append("formulario")
+    
+    return {"codigo": participante["codigo"],"motivos_de_revision": motivos}
+
+
+@app.cell
+def _(participantes_estudio):
+    # queremos ejecutar la funcion clasificar_participante por cada elemnto (participante) en la lista de estudio. 
+    for _participante in participantes_estudio:
+        print(f"Clasificando participante {_participante['codigo']}:")
+        resultado = clasificar_participante(participante=_participante, edad_minima=18, edad_maxima=65)
+        print(resultado)
+
+    participantes_estudio
+    return
 
 
 @app.cell(hide_code=True)
@@ -314,13 +430,13 @@ def exercise_integrated_prompt(mo):
 
 
 @app.cell
-def exercise_integrated(clasificar_registro_c04):
+def exercise_integrated():
     def organizar_jornada_c04(registros, edad_minima, edad_maxima):
         # TU TURNO: construye y devuelve las dos listas del resumen.
         ...
 
     organizar_jornada_c04
-    return (organizar_jornada_c04,)
+    return
 
 
 @app.cell(hide_code=True)

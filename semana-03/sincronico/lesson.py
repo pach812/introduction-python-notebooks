@@ -30,14 +30,16 @@ def _():
 @app.cell(hide_code=True)
 def process_one_object_prompt(mo):
     mo.md(r"""
-    # Incidente 1 · El identificador no coincide con el registro
+    # Los métodos limpian el texto sin cambiar la fuente
+    ## Problema 01
 
     El lote llegó como `"  Horizonte_A-01  "`, pero el registro espera
     `"horizonte_a-01"`.
 
-    Conserven el texto recibido. Recuperen primero las dos operaciones que
-    necesitan, comprueben que se pueden llamar y produzcan el identificador
-    normalizado en un nombre nuevo.
+    El equipo necesita entregar el identificador normalizado sin alterar el texto
+    que llegó de la fuente. Decida cómo usar la interfaz del objeto para producir
+    `"horizonte_a-01"`. Guarde los métodos en nombres separados y use
+    `callable(...)` para comprobar que Python puede ejecutarlos.
     """)
     return
 
@@ -46,6 +48,7 @@ def process_one_object_prompt(mo):
 def process_one_object_workspace():
     identificador_fuente_c01 = "  Horizonte_A-01  "
 
+    # TU TURNO: recupere los métodos y llámelos para crear el resultado.
     metodo_limpieza_c01 = None
     metodo_minusculas_c01 = None
     operaciones_invocables_c01 = None
@@ -64,54 +67,61 @@ def process_one_object_workspace():
 @app.cell(hide_code=True)
 def process_one_import_prompt(mo):
     mo.md(r"""
-    # Decisión 2 · Abrir herramientas sin ocultar su origen
+    # Demostración guiada · La biblioteca estándar resuelve tareas comunes
 
-    El equipo utilizará NumPy para operar sobre las lecturas y Pandas para
-    conservar sus etiquetas. Importen ambas librerías con los alias acordados.
-
-    Construyan un array de prueba con `[72, 68]` y obtengan su tipo, forma y
-    `dtype` desde el objeto. En la revisión deben poder señalar qué parte de cada
-    expresión conserva visible el origen de la herramienta.
+    Acompañe la demostración del docente con `math.ceil(...)`, `stats.mean(...)`
+    y `random.choice(...)`. Por ahora no hay un problema que entregar: NumPy y
+    Pandas aparecerán cuando empecemos a trabajar con arrays y tablas.
     """)
     return
 
 
 @app.cell
-def process_one_import_workspace():
+def process_one_import_workspace(mo):
+    import math
+    import random
+    import statistics as stats
+
+    minutos_sesion_c02 = 137
+    lecturas_prueba_c02 = [72, 68, 75]
+    random.seed(2026)
+
+    mo.ui.table(
+        {
+            "horas completas necesarias": math.ceil(minutos_sesion_c02 / 60),
+            "promedio de prueba": stats.mean(lecturas_prueba_c02),
+            "selección reproducible": random.choice(["P01", "P02", "P03"]),
+        }
+    )
+    return
+
+
+@app.cell(hide_code=True)
+def scientific_tools_imports():
     import numpy as np
     import pandas as pd
 
-    array_importado_c02 = None
-    tipo_array_c02 = None
-    forma_array_c02 = None
-    dtype_array_c02 = None
-
-    {
-        "array": array_importado_c02,
-        "tipo": tipo_array_c02,
-        "shape": forma_array_c02,
-        "dtype": dtype_array_c02,
-    }
     return np, pd
 
 
 @app.cell(hide_code=True)
 def numpy_creation_prompt(mo):
     mo.md(r"""
-    # Decisión 3 · Preparar el lote completo para operar en conjunto
+    # `shape`, `ndim` y `dtype` describen el array
+    ## Problema 02
 
-    Las seis lecturas crudas del lote son `[72, 68, 75, 80, 71, 77]`.
-    Conviértanlas en un array de tipo `float`.
+    El nuevo lote contiene `[72, 68, 75, 80, 71, 77]`. El ajuste posterior puede
+    producir decimales. Queremos confirmar que las seis lecturas quedaron en una
+    sola dimensión y que el array puede guardar valores decimales.
 
-    Obtengan desde el objeto su forma, cantidad de dimensiones y `dtype`. Estos
-    resultados serán la evidencia de que el lote quedó listo sin escribir sus
-    propiedades manualmente.
+    Vamos a crear el array con `dtype=float`. Después revisaremos `shape`, `ndim`
+    y `dtype`: esas tres salidas muestran cómo quedó organizado.
     """)
     return
 
 
 @app.cell
-def numpy_creation_workspace(np):
+def numpy_creation_workspace():
     lecturas_lote_a_c03a = [72, 68, 75, 80, 71, 77]
 
     array_lote_a_c03a = None
@@ -132,27 +142,27 @@ def numpy_creation_workspace(np):
 @app.cell(hide_code=True)
 def numpy_vectorization_prompt(mo):
     mo.md(r"""
-    # Consecuencia 4 · Todas las lecturas requieren el mismo ajuste
+    # La fuente y el resultado permanecen separados
+    ## Problema 03
 
-    El protocolo técnico solicita multiplicar todas las lecturas del lote A por
-    `1.05`. Apliquen el ajuste al array completo, sin escribir un ciclo.
-
-    Conserven la fuente y produzcan dos evidencias: que entrada y salida tienen
-    la misma forma y que el array fuente no fue reemplazado por el resultado.
+    Una simulación del estudio usa un factor de `1.05`, pero después tendremos que
+    comparar las lecturas crudas con las ajustadas. Calcule el nuevo lote con una
+    sola expresión sobre el array. Compare las formas de entrada y salida, y use
+    `np.array_equal(...)` para revisar que la fuente siga intacta.
     """)
     return
 
 
 @app.cell
 def numpy_vectorization_workspace(np):
-    lecturas_lote_b_c03b = np.array([72.0, 68.0, 75.0, 80.0, 71.0, 77.0])
+    lecturas_lote_a_c03b = np.array([72.0, 68.0, 75.0, 80.0, 71.0, 77.0])
 
     lecturas_ajustadas_c03b = None
     misma_forma_c03b = None
     fuente_conservada_c03b = None
 
     {
-        "fuente": lecturas_lote_b_c03b,
+        "fuente": lecturas_lote_a_c03b,
         "ajuste": lecturas_ajustadas_c03b,
         "¿misma forma?": misma_forma_c03b,
         "¿fuente conservada?": fuente_conservada_c03b,
@@ -163,26 +173,21 @@ def numpy_vectorization_workspace(np):
 @app.cell(hide_code=True)
 def numpy_indexing_prompt(mo):
     mo.md(r"""
-    # Incidente 5 · La bitácora señala posiciones, no participantes
+    # Seleccionar con índices y cortes
+    ## Problema 04
 
-    Una bitácora provisional pide revisar posiciones del lote ajustado. Obtengan:
-
-    - el tercer valor como escalar;
-    - los tres valores centrales como array;
-    - una lectura sí y una no, empezando en la primera posición.
-
-    Antes de ejecutar, indiquen qué posiciones esperan conservar. Al final,
-    expliquen qué información todavía falta para saber a quién pertenece cada
-    valor.
+    Una bitácora antigua solo dice: “tercera lectura”, “tres lecturas centrales”
+    y “una lectura sí y una no desde el inicio”. Traduzca esas referencias a
+    selecciones sobre el array. Antes de ejecutar, anticipe qué posiciones deben
+    aparecer; después, explique qué información no puede recuperarse únicamente
+    con posiciones.
     """)
     return
 
 
 @app.cell
 def numpy_indexing_workspace(np):
-    lecturas_ordenadas_c03c = np.array(
-        [75.6, 71.4, 78.75, 84.0, 74.55, 80.85]
-    )
+    lecturas_ordenadas_c03c = np.array([75.6, 71.4, 78.75, 84.0, 74.55, 80.85])
 
     tercer_valor_c03c = None
     region_central_c03c = None
@@ -199,19 +204,20 @@ def numpy_indexing_workspace(np):
 @app.cell(hide_code=True)
 def numpy_mask_prompt(mo):
     mo.md(r"""
-    # Decisión 6 · Convertir una regla en una selección verificable
+    # Seleccionar valores con una máscara
+    ## Problema 05
 
-    El estudio revisará las lecturas ajustadas mayores o iguales a `78`.
-
-    A partir de la lista cruda del lote A, construyan el array, apliquen el factor
-    `1.05`, produzcan la máscara y seleccionen los valores. Conserven la máscara
-    como evidencia: no basta con mostrar únicamente el resultado final.
+    Para este lote, una lectura ajustada entra a revisión desde `78`, inclusive.
+    Primero preparemos los datos y apliquemos el factor `1.05`. Guarde la comparación
+    `mediciones_ajustadas_c03 >= 78` en una variable: así podremos ver la decisión
+    `True` o `False` correspondiente a cada lectura. Use esa máscara para obtener
+    la selección final y conserve la lista original para compararla.
     """)
     return
 
 
 @app.cell
-def numpy_mask_workspace(np):
+def numpy_mask_workspace():
     lecturas_fuente_c03d = [72, 68, 75, 80, 71, 77]
 
     array_lote_c_c03d = None
@@ -232,14 +238,15 @@ def numpy_mask_workspace(np):
 @app.cell(hide_code=True)
 def numpy_aggregation_prompt(mo):
     mo.md(r"""
-    # Decisión 7 · Resumir sin confundir participantes y capturas
+    # El eje depende de la respuesta que queremos conservar
+    ## Problema 06
 
     La matriz representa seis participantes en filas y dos capturas en columnas.
 
-    Antes de programar, determinen cuántos valores debería producir cada resumen.
-    Luego calculen un promedio por participante, un promedio por captura y el
-    valor máximo de toda la matriz. Usen la forma de los resultados para comprobar
-    que eligieron el eje correcto.
+    El equipo necesita tres respuestas: el promedio de cada participante, el
+    promedio de cada captura y el máximo global. Antes de elegir un eje, anticipe
+    cuántos valores debería tener cada respuesta. Use después las salidas para
+    comprobar que la dimensión adecuada permaneció.
     """)
     return
 
@@ -258,12 +265,12 @@ def numpy_aggregation_workspace(np):
     )
 
     promedio_participante_c03e = None
-    promedio_captura_c03e = None
+    promedio_visita_c03e = None
     maximo_global_c03e = None
 
     {
         "por participante": promedio_participante_c03e,
-        "por captura": promedio_captura_c03e,
+        "por captura": promedio_visita_c03e,
         "máximo": maximo_global_c03e,
     }
     return
@@ -272,19 +279,20 @@ def numpy_aggregation_workspace(np):
 @app.cell(hide_code=True)
 def pandas_series_creation_prompt(mo):
     mo.md(r"""
-    # Incidente 8 · Una selección de posiciones perdió la identidad
+    # Crear una Series con etiquetas
+    ## Problema 07
 
-    Los valores ajustados deben volver a quedar unidos a los códigos P01–P06.
-    Construyan una Series llamada `"lectura_ajustada"` con ambos componentes.
-
-    Recuperen el nombre y el índice desde el objeto. La salida debe permitir
-    comprobar que hay exactamente una etiqueta por lectura.
+    El equipo recibió por separado seis valores ajustados y seis códigos. Necesita
+    un objeto que preserve su correspondencia aunque después cambie el orden de
+    presentación. Cree una Series llamada `"lectura_ajustada"`. Al final, consulte
+    `.index` y `.name` para revisar que los códigos y el nombre sí quedaron dentro
+    del objeto.
     """)
     return
 
 
 @app.cell
-def pandas_series_creation_workspace(pd):
+def pandas_series_creation_workspace():
     valores_c04a = [75.6, 71.4, 78.75, 84.0, 74.55, 80.85]
     codigos_c04a = ["P01", "P02", "P03", "P04", "P05", "P06"]
 
@@ -303,15 +311,15 @@ def pandas_series_creation_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_series_selection_prompt(mo):
     mo.md(r"""
-    # Comprobación 9 · La etiqueta debe resistir un cambio de orden
+    # Seleccionar por etiqueta y por posición
+    ## Problema 08
 
     La Series preparada llega en el orden P04, P01, P06, P03, P02, P05.
 
-    Seleccionen P03 por etiqueta y la tercera posición con `iloc`. Luego obtengan
-    P01, P03 y P05 mediante una lista de etiquetas.
-
-    Comparen los dos primeros resultados: esta vez no coinciden. Expliquen cuál
-    solicitud conserva la identidad y cuál depende del orden actual.
+    La Series llega en el orden P04, P01, P06, P03, P02, P05. El equipo pide la
+    lectura de P03, la observación situada actualmente en tercer lugar y el grupo
+    P01–P03–P05. Busque cada resultado y compare cuál permanecería estable ante
+    un nuevo reordenamiento.
     """)
     return
 
@@ -339,19 +347,19 @@ def pandas_series_selection_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_dataframe_creation_prompt(mo):
     mo.md(r"""
-    # Decisión 10 · Reunir variables que describen la misma observación
+    # Construir un DataFrame desde un diccionario
+    ## Problema 09
 
-    El equipo necesita leer en cada fila el código, la lectura cruda y el estado
-    de revisión. Comprueben primero que las columnas del diccionario tienen la
-    misma longitud, conviértanlo en un DataFrame y obtengan su forma.
-
-    La tabla es válida si conserva seis observaciones y tres variables alineadas.
+    Las columnas llegaron dentro de un diccionario. Antes de producir la tabla de
+    entrega, revise si todas describen la misma cantidad de observaciones. Si las
+    longitudes coinciden, construya el DataFrame y consulte `.shape` para confirmar
+    cuántas observaciones y variables quedaron en la tabla.
     """)
     return
 
 
 @app.cell
-def pandas_dataframe_creation_workspace(pd):
+def pandas_dataframe_creation_workspace():
     datos_c04c = {
         "codigo": ["P01", "P02", "P03", "P04", "P05", "P06"],
         "lectura": [72, 68, 75, 80, 71, 77],
@@ -371,16 +379,13 @@ def pandas_dataframe_creation_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_inspection_prompt(mo):
     mo.md(r"""
-    # Verificación 11 · Elegir evidencia antes de seguir
+    # Revisar la forma, los tipos y las primeras filas
+    ## Problema 10
 
-    Antes de transformar la tabla, respondan con código:
-
-    - ¿tiene seis filas y tres columnas?;
-    - ¿qué variable quedó representada como booleana?;
-    - ¿qué aspecto tienen las dos primeras observaciones?
-
-    Elijan atributos o métodos que reaccionen si los datos cambian. No escriban
-    las respuestas manualmente.
+    Antes de continuar, queremos saber cuántas filas y columnas tiene la tabla,
+    cuál variable es booleana y cómo se ven las dos primeras observaciones.
+    Responda con `.shape`, `.dtypes` y `.head(2)` para que las salidas se actualicen
+    si la tabla cambia.
     """)
     return
 
@@ -412,16 +417,13 @@ def pandas_inspection_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_columns_prompt(mo):
     mo.md(r"""
-    # Decisión 12 · La siguiente tarea exige conservar una tabla
+    # Seleccionar una columna como Series o DataFrame
+    ## Problema 11
 
-    Primero recuperen `codigo` como Series para observar una sola variable.
-    Después preparen dos entregas que deben seguir siendo DataFrames:
-
-    - una tabla de una columna con `codigo`;
-    - una tabla con `codigo` y `lectura`.
-
-    Comprueben los tipos. Decidan qué forma usarían si otra persona espera una
-    tabla, incluso cuando solo contiene una variable.
+    Una herramienta acepta una Series; otra exige siempre una tabla de dos
+    dimensiones. A partir del mismo DataFrame, seleccione `codigo` en ambos
+    formatos y cree además una tabla con `codigo` y `lectura`. Compare el tipo y
+    la forma de las tres salidas antes de decidir cuál usaría en cada caso.
     """)
     return
 
@@ -451,14 +453,15 @@ def pandas_columns_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_loc_iloc_prompt(mo):
     mo.md(r"""
-    # Comprobación 13 · Identidad y posición responden preguntas distintas
+    # Seleccionar filas y columnas con `loc` e `iloc`
+    ## Problema 12
 
     La tabla está indexada por código, pero su orden fue alterado.
 
-    Usen `loc` para obtener P02 y P03 con `codigo` y `lectura`. Después usen
-    `iloc` para obtener las dos primeras filas y las dos primeras columnas.
-    Comparen las salidas y expliquen cuál podría cambiar si alguien reordena la
-    tabla otra vez.
+    La tabla está indexada por código, pero su orden fue alterado. El equipo
+    necesita las variables `codigo` y `lectura` de P02 y P03 y, por separado, una
+    revisión visual de las dos primeras filas y columnas actuales.
+    Hagamos ambas selecciones y revisemos cuál cambiaría con un nuevo orden.
     """)
     return
 
@@ -487,14 +490,18 @@ def pandas_loc_iloc_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_filter_prompt(mo):
     mo.md(r"""
-    # Decisión 14 · La coordinación necesita una cola de revisión
+    # Combinar dos condiciones en un filtro
+    ## Problema 13
 
-    La cola debe incluir únicamente registros marcados para revisión cuya lectura
-    cruda sea mayor o igual a `75`.
+    La cola debe contener únicamente participantes que cumplen ambas reglas:
 
-    Construyan y conserven por separado las dos condiciones y la máscara
-    combinada. Después seleccionen `codigo` y `lectura`. La máscara debe permitir
-    explicar por qué cada fila entró o quedó fuera.
+    - `lectura` es mayor o igual a `75`;
+    - `requiere_revision` es verdadero.
+
+    Guarde primero cada condición en una variable y luego combínelas con `&`.
+    Mostrar las dos condiciones y la máscara final nos permite revisar por qué
+    cada fila entró o quedó fuera. Use la máscara para seleccionar `codigo` y
+    `lectura`.
     """)
     return
 
@@ -526,13 +533,13 @@ def pandas_filter_workspace(pd):
 @app.cell(hide_code=True)
 def pandas_derived_prompt(mo):
     mo.md(r"""
-    # Consecuencia 15 · La entrega necesita mostrar el ajuste
+    # Crear una columna sin cambiar la tabla original
+    ## Problema 14
 
-    Trabajen sobre una copia del lote completo y creen `lectura_ajustada`
-    aplicando el factor `1.05` a `lectura`.
-
-    Produzcan evidencia de dos cosas: la correspondencia fila a fila se conserva
-    y la tabla fuente mantiene sus columnas originales.
+    La entrega debe mostrar juntas la lectura original y la ajustada, pero la tabla
+    recibida debe quedar intacta. Haga una copia, cree allí `lectura_ajustada`
+    usando el factor `1.05` y compare `.columns` en ambas tablas para revisar dónde
+    quedó la nueva variable.
     """)
     return
 
@@ -562,36 +569,41 @@ def pandas_derived_workspace(pd):
 @app.cell(hide_code=True)
 def final_transfer_prompt(mo):
     mo.md(r"""
-    # Transferencia final · Llegó el lote B
+    # Integrar el proceso con un lote nuevo
+    ## Problema 15
 
-    Este lote no conserva el orden ni los valores del ejemplo:
+    El lote B cambia códigos, orden y valores. Necesitamos una copia con el ajuste
+    `1.05`, un filtro que combine la marcación existente con un límite de `80`
+    sobre la lectura ajustada y una tabla final ordenada de mayor a menor.
 
-    ```python
-    {
-        "codigo": ["P12", "P09", "P14", "P11", "P10"],
-        "lectura": [74, 82, 69, 78, 76],
-        "requiere_revision": [True, False, True, True, True],
-    }
-    ```
-
-    Construyan una entrega que:
-
-    - conserve intacta la fuente;
-    - añada `lectura_ajustada` con el factor `1.05`;
-    - incluya registros marcados y con lectura ajustada de al menos `80`;
-    - muestre `codigo`, `lectura` y `lectura_ajustada`;
-    - quede ordenada de mayor a menor por la lectura ajustada.
-
-    Decidan la secuencia de operaciones. Al comparar soluciones deberán justificar
-    dónde aplicaron la condición y cómo comprobaron que la fuente no cambió.
+    Organice la solución con las ideas que trabajamos durante la sesión. Al final,
+    muestre la tabla original junto con el resultado para comprobar que la fuente
+    no cambió.
     """)
     return
 
 
 @app.cell
-def final_transfer_workspace():
-    # TU TURNO: construyan aquí la solución completa.
-    ...
+def final_transfer_workspace(pd):
+    datos_fuente_c04 = {
+        "codigo": ["P12", "P09", "P14", "P11", "P10"],
+        "lectura": [74, 82, 69, 78, 76],
+        "requiere_revision": [True, False, True, True, True],
+    }
+
+    tabla_fuente_c04 = pd.DataFrame(datos_fuente_c04)
+
+    # TU TURNO: construya aquí la solución completa.
+    tabla_trabajo_c04 = None
+    mascara_final_c04 = None
+    tabla_revision_c04 = None
+
+    {
+        "fuente": tabla_fuente_c04,
+        "copia de trabajo": tabla_trabajo_c04,
+        "máscara": mascara_final_c04,
+        "entrega": tabla_revision_c04,
+    }
     return
 
 

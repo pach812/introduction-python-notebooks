@@ -1,18 +1,18 @@
-course_version: v2-weeks-01-03
-source_commit: 950359e52a22d8acfcbaf13d575d995cf899a698
+course_version: v2-weeks-01-04
+source_commit: 130b98dbc0c96e28b8b11e31a84c037b533d1577
 files:
 - path: .gitignore
   size_bytes: 47
   sha256: 94b3dde514f90a400e7e87e94273ee50d2c90d4cfc00dcd17fe3b2468b496e0c
 - path: COURSE_VERSION
   size_bytes: 15
-  sha256: fcbf5e48f802105615469215c1ea56aabd34599f01f6431918244939f66e943d
+  sha256: a319894c01407c58e680ac4d7ccfbf830436ab673acf3be2ecaefd8a75c050bb
 - path: LICENSE
   size_bytes: 940
   sha256: a62f0486bc00e239d373603f5d3c3e4fefc35270b96ff306c8019db6d5581e57
 - path: README.md
-  size_bytes: 1914
-  sha256: 2df164cd5d0c0793d7d50d3b993719c675c309f6ed5fa2f214c7e5690d0ad539
+  size_bytes: 2046
+  sha256: 9ddf8d5db34117b1cab065db6b755f8276fa5fe88b8b83e1ac66d8a3688f2084
 - path: assets/ces-theme.css
   size_bytes: 41506
   sha256: df8f3c3d27efd78bc16cb91d3267dd615b141ccaa4b9ca267b0dd6c917aa5a8e
@@ -22,6 +22,9 @@ files:
 - path: course_feedback/bundles/week_03_objects_scientific_tools.pyc
   size_bytes: 5039
   sha256: c523e47ae085ba41eeb3268d9aef6c1e508f07f8a997684bd57d98cc9d2ab0b8
+- path: course_feedback/bundles/week_04_data_cleaning_wrangling.pyc
+  size_bytes: 5467
+  sha256: c26b5521244467d565dd3990c9ef8bac3821281474f4839dbb48283468d12d5a
 - path: course_widgets/__init__.py
   size_bytes: 891
   sha256: 1248e961306e40b205b9cb82384e204cd312e1d5b8e32ef35cee34838d639e08
@@ -35,8 +38,8 @@ files:
   size_bytes: 30174
   sha256: 5fb25d5332002b768933b551cb4cb66614f35e19517d19e5f1f530fef3f92158
 - path: pyproject.toml
-  size_bytes: 608
-  sha256: 2a8e0d83a4e00c24908ef1c548d914f284ff5b43cfb88e90d746e90886457839
+  size_bytes: 631
+  sha256: 76bf4ca2fd5371180faa81a9b2e4dd02d6974983d5898e77c7f61576efa59fe9
 - path: semana-01/sincronico/README.md
   size_bytes: 992
   sha256: d676c929dcdd7ae6bceee1417afeb46e2f8e6ef38f6aadf1dd5425c00d393ad0
@@ -83,11 +86,11 @@ files:
   size_bytes: 1115
   sha256: 6da9eb6381a4cd981ff02618f3b0ee95375cd5fd1cfa3b83999343cf23cdfa07
 - path: semana-02/sincronico/layouts/lesson.slides.json
-  size_bytes: 815
-  sha256: b1ec1fa450cf33f702ab14af69d158d9d2891efd3f3e564d14273cbbe0aa71e5
+  size_bytes: 834
+  sha256: 6dc96aa79a44f449f5b2ab198becb75cd0a97ef1c1c795aaeb29156a0d0e5328
 - path: semana-02/sincronico/lesson.py
-  size_bytes: 10104
-  sha256: fc71d87acee9a2ac57b277a588286c034b50c4e02bb5da6ff6cea47550ae705b
+  size_bytes: 14238
+  sha256: 3459f9aae6ce61be6f837e94d2264d5c9d2c37f7c37e8784e224bbf61f089baf
 - path: semana-03/autoaprendizaje/01_objetos_atributos_y_metodos.py
   size_bytes: 17408
   sha256: e3940ce6dbfc3f9ba7ea6822b0c3515ba0cb66e413404fccc5acfa91c811f8f3
@@ -107,11 +110,44 @@ files:
   size_bytes: 1420
   sha256: baaa4b7a6f49336015beee5b6bd0185f88a43f6babaa453f535077201c7eb3f1
 - path: semana-03/sincronico/README.md
-  size_bytes: 1176
-  sha256: 0e022cc7e3f45d1242f6c093bfc36782cb2fd28822dab1ab46c3af325b127410
+  size_bytes: 1251
+  sha256: 80b2f08c897f29f0d1a8bfee1da08823beba00b74467bf738b67be767c789a77
 - path: semana-03/sincronico/layouts/lesson.slides.json
-  size_bytes: 950
-  sha256: b5bf76bde9efafb353a9b08f30524fe02ae217bbf2abf1b57f4e7b2a64e36d2d
+  size_bytes: 959
+  sha256: 98dfe8cb523c6d229df447732259959cf3dde1f63dc6a5aca721a94fb95d500d
 - path: semana-03/sincronico/lesson.py
-  size_bytes: 16032
-  sha256: f92aed5be4a6175a0f4a06db93c2b67636822359f612c2574375d46db5ecfd25
+  size_bytes: 16709
+  sha256: 10504467f868be6dcda35771a061bb3c9a44b0cc95fa815a159e95fabcb11408
+- path: semana-04/sincronico/README.md
+  size_bytes: 3049
+  sha256: c04fe2417e87c3958ce96bdf1115a58b67f1764024394025dc9e4ab20b537214
+- path: semana-04/sincronico/assets/contactos_dia_1.csv
+  size_bytes: 130
+  sha256: d6ec9bee63db513ea2904322f092f4c9cb3134b81c98242590f02dfecd5884d7
+- path: semana-04/sincronico/assets/contactos_dia_2.csv
+  size_bytes: 128
+  sha256: c1e83294eb0ec51076cbf25b48b40ac1b2e351876f427bdb0f6c58e5acab657e
+- path: semana-04/sincronico/assets/lote_b_transferencia.csv
+  size_bytes: 437
+  sha256: ffdd56f2eb2cb7171f5ae0a32186c8e71ab0a3503aaca62313fd97c7bb815dea
+- path: semana-04/sincronico/assets/pacientes_estudio.csv
+  size_bytes: 2937
+  sha256: 705a8457476615038638fae383d5a64f73c0bdea53238b504c9ef8fa4a105a58
+- path: semana-04/sincronico/assets/pacientes_estudio.parquet
+  size_bytes: 7616
+  sha256: 62f3c67054fb10392ed4bc13ebdab2a2096f26b6e0dc7a8e859bbf3db4a39189
+- path: semana-04/sincronico/assets/pacientes_punto_y_coma.csv
+  size_bytes: 2953
+  sha256: 2732c1ffe68d1618861eb5855041ff06bc4958128c5aeae544b1397d883b3499
+- path: semana-04/sincronico/assets/presion_ancha.csv
+  size_bytes: 379
+  sha256: 0e494e45916714bd087e5d4acdb0b4990058faf66c7eaed9122cd5d55de25d6a
+- path: semana-04/sincronico/assets/sedes_estudio.csv
+  size_bytes: 81
+  sha256: 4332568964510245720a5fe3806ccafcfe77ec1b62dc521f3e404462d9d9367a
+- path: semana-04/sincronico/layouts/lesson.slides.json
+  size_bytes: 788
+  sha256: 144653dcce00aed3ba2acdeb1dcb38bbdd9c7a9368e3e6d70527bef8362b1b7b
+- path: semana-04/sincronico/lesson.py
+  size_bytes: 16208
+  sha256: 68c92a2fcefc0d92c0830ef31bf80502454bb122885d96d94a88b7a2b8cca284
