@@ -1,0 +1,11 @@
+variable,tipo_esperado,descripcion,rango_o_valores,admite_nulos
+codigo,string,Identificador único del participante en Estudio Horizonte,EH-001 a EH-050,no
+fecha_visita,datetime64[ns],Fecha de evaluación presencial,2026-01-01 a 2026-06-30,no
+sede,string,Sede clínica de atención,"Norte, Sur, Centro",no
+edad,Int64,Edad en años cumplidos,18 a 110,no
+sexo_reportado,category,Sexo biológico reportado por el participante,"F, M",no
+lectura_sistolica,Float64,Presión arterial sistólica en reposo (mmHg),70 a 220,si
+imc,Float64,Índice de masa corporal (kg/m²),14.0 a 55.0,si
+tabaquismo,category,Consumo activo de cigarrillo,"si, no",no
+estado_seguimiento,category,Estado de contacto del participante en el protocolo,"completo, no_contactado, pendiente",no
+numero_visitas,Int64,Número acumulado de visitas completadas,1 a 10,no

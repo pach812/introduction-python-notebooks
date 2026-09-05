@@ -36,6 +36,8 @@ en el orden numerado o abrir únicamente el tema que quieras repasar.
   los conceptos de la tercera semana.
 - `semana-04/sincronico/`: limpieza, diagnóstico, preparación y combinación de
   datos con el Estudio Horizonte.
+- `semana-04/autoaprendizaje/`: nueve unidades para profundizar la ingesta,
+  calidad, limpieza, transformación y combinación de datos.
 
 Cada carpeta tiene su propio README con la ruta sugerida y el comando para abrir
 el material.

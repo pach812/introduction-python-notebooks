@@ -1,5 +1,5 @@
 course_version: v2-weeks-01-04
-source_commit: 130b98dbc0c96e28b8b11e31a84c037b533d1577
+source_commit: a67fa570ab79545808a97ef596da37f7cbc447ec
 files:
 - path: .gitignore
   size_bytes: 47
@@ -11,8 +11,8 @@ files:
   size_bytes: 940
   sha256: a62f0486bc00e239d373603f5d3c3e4fefc35270b96ff306c8019db6d5581e57
 - path: README.md
-  size_bytes: 2046
-  sha256: 9ddf8d5db34117b1cab065db6b755f8276fa5fe88b8b83e1ac66d8a3688f2084
+  size_bytes: 2184
+  sha256: b68eecc6559cc0e89bc1343b88be1ba73bad6123f73d1aac884fe6c7bd62d81c
 - path: assets/ces-theme.css
   size_bytes: 41506
   sha256: df8f3c3d27efd78bc16cb91d3267dd615b141ccaa4b9ca267b0dd6c917aa5a8e
@@ -118,6 +118,75 @@ files:
 - path: semana-03/sincronico/lesson.py
   size_bytes: 16709
   sha256: 10504467f868be6dcda35771a061bb3c9a44b0cc95fa815a159e95fabcb11408
+- path: semana-04/autoaprendizaje/01_leer_archivos_texto.py
+  size_bytes: 12294
+  sha256: 86325b892897510f5eeca6eb0ec7c8f310c5c77dbb3a3a60b5221d06c0e63ed8
+- path: semana-04/autoaprendizaje/02_elegir_formato_y_escribir.py
+  size_bytes: 10258
+  sha256: a1e905d4ae38347fb6206971b69919ca63af9bf61e6ba6f20721234863219cc6
+- path: semana-04/autoaprendizaje/03_auditar_estructura_y_calidad.py
+  size_bytes: 9403
+  sha256: 4a850224379e26aab6f865be79a1223d523a327007b34d48dc83bd2bd85679fa
+- path: semana-04/autoaprendizaje/04_tratar_datos_faltantes.py
+  size_bytes: 8568
+  sha256: 20a665f74e348a582ed82c7080f0c41b94ee8415f9ef939aaee94f30fd467aa6
+- path: semana-04/autoaprendizaje/05_corregir_etiquetas_tipos_duplicados.py
+  size_bytes: 8349
+  sha256: 59876adf4b7ab52402e238142dd05ccd63747db8307c5f4cc86896319ee365a4
+- path: semana-04/autoaprendizaje/06_transformar_variables.py
+  size_bytes: 8025
+  sha256: 7ffeb0ce18fff7e708ad23b9eaebd3666caec33be34421e0d4da75a60c481c2c
+- path: semana-04/autoaprendizaje/07_combinar_fuentes.py
+  size_bytes: 8530
+  sha256: ead0b7137fa75d74af10f66b52f5effda1ad8d2314f14de4c5b27b37c0f610a1
+- path: semana-04/autoaprendizaje/08_formato_ancho_y_largo.py
+  size_bytes: 7764
+  sha256: 6b6f907c460ce377d494842039757f6b6b3821e8d52a3425e6cd937a835f6957
+- path: semana-04/autoaprendizaje/09_integrar_flujo.py
+  size_bytes: 9341
+  sha256: b3661945fefbccd71a8957310f85a85a8d6c99115a507d7accb4e0a7e1ba7dca
+- path: semana-04/autoaprendizaje/README.md
+  size_bytes: 4884
+  sha256: 3a0162ff4f0a7d90c278c3de79773beb2258e0100bcc452650b0a02ca52f6c13
+- path: semana-04/autoaprendizaje/assets/contactos_dia_1.csv
+  size_bytes: 130
+  sha256: d6ec9bee63db513ea2904322f092f4c9cb3134b81c98242590f02dfecd5884d7
+- path: semana-04/autoaprendizaje/assets/contactos_dia_2.csv
+  size_bytes: 128
+  sha256: c1e83294eb0ec51076cbf25b48b40ac1b2e351876f427bdb0f6c58e5acab657e
+- path: semana-04/autoaprendizaje/assets/diccionario_datos.csv
+  size_bytes: 831
+  sha256: 3d71c931f85b26e92698819aa9f6469d87a7c2a6e166317c7cdbb37906e33fe7
+- path: semana-04/autoaprendizaje/assets/pacientes_estudio.csv
+  size_bytes: 2937
+  sha256: 705a8457476615038638fae383d5a64f73c0bdea53238b504c9ef8fa4a105a58
+- path: semana-04/autoaprendizaje/assets/pacientes_estudio.dta
+  size_bytes: 5356
+  sha256: 50e9775925e4b59bc2c9e73aaa3b381d9cc003dbc7f40940c2ef1d299128976e
+- path: semana-04/autoaprendizaje/assets/pacientes_estudio.parquet
+  size_bytes: 7616
+  sha256: 62f3c67054fb10392ed4bc13ebdab2a2096f26b6e0dc7a8e859bbf3db4a39189
+- path: semana-04/autoaprendizaje/assets/pacientes_estudio.pkl
+  size_bytes: 7254
+  sha256: 20d463fcfce67e37f729940a1b2ba40fa20c3931268e477649ad6e8ffa464774
+- path: semana-04/autoaprendizaje/assets/pacientes_estudio.tsv
+  size_bytes: 2937
+  sha256: 969d5ea7aa9e5929005fa4fa85cc29005439eb5922c7584e35f7dfe0a940f77d
+- path: semana-04/autoaprendizaje/assets/pacientes_estudio.xlsx
+  size_bytes: 7711
+  sha256: 81bc3a6f5247878837a2a0d9ab043fbd4b28746c3faf80c5074c61de8d76c043
+- path: semana-04/autoaprendizaje/assets/pacientes_punto_y_coma.csv
+  size_bytes: 2953
+  sha256: 2732c1ffe68d1618861eb5855041ff06bc4958128c5aeae544b1397d883b3499
+- path: semana-04/autoaprendizaje/assets/paquete_estudio.xlsx
+  size_bytes: 8253
+  sha256: b460a5c65b1565b2aa68929274bb678b3da98ff4e1d62e3490fc4102fea982fc
+- path: semana-04/autoaprendizaje/assets/presion_ancha.csv
+  size_bytes: 379
+  sha256: 0e494e45916714bd087e5d4acdb0b4990058faf66c7eaed9122cd5d55de25d6a
+- path: semana-04/autoaprendizaje/assets/sedes_estudio.csv
+  size_bytes: 81
+  sha256: 4332568964510245720a5fe3806ccafcfe77ec1b62dc521f3e404462d9d9367a
 - path: semana-04/sincronico/README.md
   size_bytes: 3049
   sha256: c04fe2417e87c3958ce96bdf1115a58b67f1764024394025dc9e4ab20b537214
